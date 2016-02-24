@@ -1,0 +1,165 @@
+// Foundation by ZURB
+// foundation.zurb.com
+// Licensed under MIT Open Source
+
+@import 'global';
+
+//
+// @variables
+//
+
+$include-html-nav-classes: $include-html-classes !default;
+
+// We use these to control list styles.
+$side-nav-list-type: none !default;
+$side-nav-list-position: outside !default;
+
+// item box
+$side-nav-item-margin: 0 !default;
+$side-nav-item-padding: rem-calc(15 10) !default;
+$side-nav-subitem-padding: rem-calc(10) !default;
+
+// item border
+$side-nav-item-border: 1px color($oide-primary-color, "darken-2") solid;
+$side-nav-subitem-border: 1px color($oide-primary-color, "darken-3") solid;
+
+// default background-color
+$side-nav-bg-color: color($oide-primary-color, "darken-3") !default;
+$side-nav-subitem-bg-color: color($oide-primary-color, "darken-4") !default;
+
+// active, hover, focus background-color
+$side-nav-item-bg-color-active: color($oide-accent-color, "base") !default;
+$side-nav-subitem-bg-color-active: color($oide-accent-color, "darken-2") !default;
+
+// color
+$side-nav-item-color: color($oide-primary-color, "lighten-3") !default;
+$side-nav-item-color-active: #fff !default;
+
+// font-family, font-size
+$side-nav-font-family: $oide-font-stack; // $body-font-family !default;
+$side-nav-item-font-size: rem-calc(14) !default;
+$side-nav-item-line-height: rem-calc(32) !default;
+$side-nav-item-font-weight: 500 !default;
+$side-nav-subitem-font-size: rem-calc(14) !default;
+$side-nav-subitem-font-weight: 100 !default;
+
+// icon-size
+$side-nav-item-icon-size: rem-calc(80) !default;
+$side-nav-item-icon-size-mobile: rem-calc(24) !default;
+
+//
+// @mixins
+//
+
+@mixin side-nav() {
+  display: block;
+  position: fixed;
+  list-style-type: $side-nav-list-type;
+  list-style-position: $side-nav-list-position;
+  top: 0;
+  left: 0;
+  width: $side-nav-width;
+  height: calc(100%);
+  margin: $header-height 0 0 0;
+  background-color: $side-nav-bg-color;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  z-index: 999;
+  @media #{$small-only} {
+    width: $side-nav-width-mobile;
+  }
+
+  li {
+    a {
+      display: block;
+      margin: $side-nav-item-margin;
+      padding: $side-nav-item-padding;
+      color: $side-nav-item-color;
+      outline: none;
+      transition: $oide-anchor-transition;
+    }
+
+    &.section-head {
+      border-bottom: $side-nav-item-border;
+
+      > a {
+        i {
+          display: block;
+          text-align: center;
+          font-size: $side-nav-item-icon-size;
+        }
+        span {
+          display: block;
+          text-align: center;
+          font-family: $side-nav-font-family;
+          font-weight: $side-nav-item-font-weight;
+          line-height: $side-nav-item-line-height;
+        }
+
+        @media #{$small-only}, (max-height: 800px) {
+          i {
+            display: inline-block;
+            font-size: $side-nav-item-icon-size-mobile;
+            margin-right: rem-calc(10);
+            line-height: $side-nav-item-line-height;
+            vertical-align: middle;
+          }
+          span {
+            display: inline-block;
+            vertical-align: middle;
+          }
+        }
+
+      }
+    }
+
+    &.section-head.active > a,
+    &.section-head > a:hover {
+      background: $side-nav-item-bg-color-active;
+      color: $side-nav-item-color-active;
+    }
+
+    &.active .content {
+      display: block;
+    }
+
+    .content {
+      display: none;
+      background: $side-nav-subitem-bg-color;
+
+      ul {
+        margin: $side-nav-item-margin;
+        list-style-type: $side-nav-list-type;
+        list-style-position: $side-nav-list-position;
+
+        li {
+          &:not(:first-child) {
+            //border-top: $side-nav-subitem-border;
+          }
+
+          a {
+            font-family: $side-nav-font-family;
+            font-weight: $side-nav-subitem-font-weight;
+            font-size: $side-nav-subitem-font-size;
+            padding: $side-nav-subitem-padding;
+
+            &:hover,
+            &.active {
+              background: $side-nav-subitem-bg-color-active;
+              color: $side-nav-item-color-active;
+            }
+
+            i {
+              margin-right: rem-calc(10);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@include exports("side-nav") {
+  @if $include-html-nav-classes {
+    .side-nav {@include side-nav;}
+  }
+}

@@ -1,0 +1,23 @@
+$header-height: 50px;
+$side-nav-width: 150px;
+
+nav {
+  overflow: hidden;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  font-size: 12px;
+  padding: 0 10px 5px 0;
+
+  .content {
+    float: right;
+  }
+}
+
+.page {
+  margin: $header-height 0 0 $side-nav-width;
+  padding: 20px;
+}
