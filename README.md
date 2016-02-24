@@ -1,4 +1,4 @@
-oidejapan-frontend
+oidejapan-frontend-react
 ============
 
 Front-end UI test for Oide Japan based on `react-rocket` (ReactJS, React Router, RefluxJS) and Foundation.
@@ -15,7 +15,7 @@ Toolchain is managed by Gulp for building and bundling the JS app (`gulp browser
 
 ### Running
 
-1. Clone this repo from `https://github.com/fhsieh/oidejapan-frontend.git`
+1. Clone this repo from `https://github.com/fhsieh/oidejapan-frontend-react.git`
 2. Run `npm install`
 3. Run `gulp dev` (run `npm install -g gulp` if Gulp is not installed)
 4. Browser should automatically launch. If not, point your browser to `http://localhost:3000/`
