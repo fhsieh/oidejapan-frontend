@@ -3,7 +3,7 @@ Oide Japan Frontend (React)
 
 Front-end UI test for Oide Japan based on `react-rocket` (ReactJS, React Router, RefluxJS) and Foundation.
 
-![oidejapan-frontend-react](https://user-images.githubusercontent.com/9514732/32268388-39424ee2-bf32-11e7-80e9-a3ade121451b.gif)
+![React UI](https://user-images.githubusercontent.com/9514732/32268388-39424ee2-bf32-11e7-80e9-a3ade121451b.gif)
 
 A demo React app for the business-facing UI of the Oide Japan platform, designed so that UI/UX logic is handled on the client-side initial load, and subsequent content is fed to the client through a REST API with no need for page reloading or redirecting. View the app source in `app/js`.
 
